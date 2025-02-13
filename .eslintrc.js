@@ -1,18 +1,33 @@
 module.exports = {
-  root: true,
-  extends: 'airbnb-base',
-  env: {
-    browser: true,
-  },
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    allowImportExportEverywhere: true,
-    sourceType: 'module',
-    requireConfigFile: false,
-  },
-  rules: {
-    'import/extensions': ['error', { js: 'always' }], // require js file extensions in imports
-    'linebreak-style': ['error', 'unix'], // enforce unix linebreaks
-    'no-param-reassign': [2, { props: false }], // allow modifying properties of param
-  },
+    root: true,
+    extends: [
+        'eslint:recommended',
+        'airbnb-base'
+    ],
+    plugins: ['import'],
+    parser: '@babel/eslint-parser',
+    parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        requireConfigFile: false
+    },
+    env: {
+        browser: true,
+        es2021: true,
+        node: true
+    },
+    settings: {
+        'import/resolver': {
+            node: {
+                extensions: ['.js', '.jsx']
+            }
+        }
+    },
+    rules: {
+        'import/no-extraneous-dependencies': 'off',
+        'import/prefer-default-export': 'off',
+        'no-param-reassign': ['error', { props: false }],
+        'no-console': ['warn', { allow: ['warn', 'error'] }],
+        'max-len': ['error', { code: 120 }]
+    }
 };
