@@ -1,0 +1,130 @@
+main > .section > .carousel-wrapper {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+main > .section > .carousel-wrapper .carousel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+main > .section > .carousel-wrapper .carousel .slider {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+main > .section > .carousel-wrapper .carousel .slide-container {
+    min-width: 100%;
+}
+
+main > .section > .carousel-wrapper .carousel .slide-container .image-container {
+    height: auto;
+}
+
+main > .section > .carousel-wrapper .carousel .slide-container .text-container {
+    font-size: 18px;
+    padding: 0 14px;
+    z-index: 1000;
+    background-color: white;
+    width: 70%;
+}
+
+main > .section > .carousel-wrapper .carousel .slide-container .text-container h2 {
+    margin: 16px 0 0;
+    font-size: 32px;
+}
+
+.dots-nav-outer-container .arrow-container button {
+    border: 0;
+    background-color: white;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+main > .section > .carousel-wrapper .carousel .slide-container .text-container .button-container button {
+    color: black;
+    font-size: 14px;
+    background-color: #ffea00;
+    border-radius: 0;
+    padding: 16px 40px;
+}
+
+.dots-nav-inner-container {
+    margin-top: 20px;
+    padding: 0 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dots-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 14px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0 0 0 / 50%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 1;
+    z-index: 1000;
+}
+
+.dot:hover {
+    background: #999;
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: rgba(0 0 0 / 80%);
+    transform: scale(1);
+}
+
+.dots-nav-outer-container .arrow-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+@media (width >= 767px) {
+    .dots-nav-outer-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .dots-nav-inner-container {
+        width: 50%;
+    }
+}
+
+@media (width >= 1026px) {
+    main > .section > div {
+        max-width: none;
+    }
+
+    .text-outer-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: -180px;
+        background-color: white;
+    }
+
+    picture,
+    img {
+        min-width: 100%;
+        display: block;
+        max-height: 640px;
+    }
+}
