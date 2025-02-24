@@ -1,0 +1,118 @@
+main > .about-us-cards-container:first-of-type {
+    margin-top: 100px !important;
+}
+
+#about-us {
+    font-size: var(--fontSizeH1, 40px);
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-weight: var(--fontWeightNormal, normal);
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+}
+
+#our-contributors {
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-weight: var(--fontWeightNormal, normal);
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+    font-size: var(--fontSizeH2, 36px);
+}
+
+.about-us-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.about-us-cards .cards-outer-container {
+    margin-top: 40px;
+    width: 100%;
+    flex: 0 0 100%;
+}
+
+.about-us-cards .cards-outer-container .cards-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-cards .cards-inner-container .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-cards .cards-inner-container .image-container div {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-cards .cards-inner-container .image-container img {
+    min-height: 266px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.about-us-cards .cards-inner-container .card-info-outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-cards .cards-inner-container .card-info-inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-cards .cards-inner-container .card-info-inner-container .author-name-container {
+    font-size: 24px;
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+}
+
+.about-us-cards .cards-inner-container .card-info-inner-container .author-interests-container {
+    font-size: 14px;
+    margin: 0 0 3.5px;
+    font-weight: 600;
+}
+
+.about-us-cards .cards-inner-container .card-info-inner-container .socials-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+}
+
+.about-us-cards .cards-inner-container .card-info-inner-container .socials-container .button-container a {
+    border-radius: 0;
+    background-color: black;
+}
+
+@media (min-width: 767px) {
+    .about-us-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .about-us-cards .cards-outer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        max-width: 300px;
+    }
+}

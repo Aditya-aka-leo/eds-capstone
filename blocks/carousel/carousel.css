@@ -19,6 +19,7 @@ main > .section > .carousel-wrapper .carousel .slider {
 }
 
 main > .section > .carousel-wrapper .carousel .slide-container {
+    position: relative;
     min-width: 100%;
 }
 
@@ -26,12 +27,16 @@ main > .section > .carousel-wrapper .carousel .slide-container .image-container 
     height: auto;
 }
 
+main > .section > .carousel-wrapper .carousel .slide-container .image-container img {
+    min-height: 571px;
+    object-fit: cover;
+}
+
 main > .section > .carousel-wrapper .carousel .slide-container .text-container {
     font-size: 18px;
     padding: 0 14px;
-    z-index: 1000;
+    z-index: 100;
     background-color: white;
-    width: 70%;
 }
 
 main > .section > .carousel-wrapper .carousel .slide-container .text-container h2 {
@@ -45,6 +50,7 @@ main > .section > .carousel-wrapper .carousel .slide-container .text-container h
     color: black;
     font-size: 30px;
     cursor: pointer;
+    padding: unset;
 }
 
 main > .section > .carousel-wrapper .carousel .slide-container .text-container .button-container button {
@@ -56,7 +62,6 @@ main > .section > .carousel-wrapper .carousel .slide-container .text-container .
 }
 
 .dots-nav-inner-container {
-    margin-top: 20px;
     padding: 0 14px;
     display: flex;
     justify-content: space-between;
@@ -104,6 +109,10 @@ main > .section > .carousel-wrapper .carousel .slide-container .text-container .
 
     .dots-nav-inner-container {
         width: 50%;
+    }
+
+    main > .section > .carousel-wrapper .carousel .slide-container .text-container {
+        width: 70%;
     }
 }
 

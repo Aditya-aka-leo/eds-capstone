@@ -111,6 +111,23 @@ h6 {
   line-height: 1.25;
   scroll-margin: 40px;
 }
+h2 {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0; 
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+  background-color: yellow;
+}
+
+
 
 h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
@@ -229,17 +246,25 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 main > .section > div {
   max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0 14px;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
+}
+
+button {
+  color: black;
+  font-size: 14px;
+  background-color: #ffea00;
+  border-radius: 0;
+  padding: 16px 40px;
 }
 
 @media (width >= 900px) {
