@@ -1,78 +1,106 @@
 import { initializeCarousel } from './slider.js';
 
-const dotsNavs = async (block) => {
-  const dotsNavOuterContainer = document.createElement('div');
-  dotsNavOuterContainer.classList.add('dots-nav-outer-container');
-
-  const dotsNavInnerContainer = document.createElement('div');
-  dotsNavInnerContainer.classList.add('dots-nav-inner-container');
-
-  dotsNavOuterContainer.append(dotsNavInnerContainer);
-
-  const dotsContainer = document.createElement('div');
-  dotsContainer.classList.add('dots-container');
-
-  dotsNavInnerContainer.append(dotsContainer);
-  block.append(dotsNavOuterContainer);
-
-  const arrowContainer = document.createElement('div');
-  arrowContainer.classList.add('arrow-container');
-
-  const prevButton = document.createElement('button');
-  prevButton.classList.add('prev-button');
-  prevButton.textContent = '←';
-
-  const nextButton = document.createElement('button');
-  nextButton.classList.add('next-button');
-  nextButton.textContent = '→';
-
-  arrowContainer.append(prevButton, nextButton);
-
-  dotsNavInnerContainer.append(arrowContainer);
+const createElementWithClass = (tag, className) => {
+  const element = document.createElement(tag);
+  element.classList.add(className);
+  return element;
 };
 
-const createSlider = async (block) => {
-  const slider = document.createElement('div');
-  slider.classList.add('slider');
+const appendChildren = (parent, children) => {
+  children.forEach((child) => parent.appendChild(child));
+};
 
+const createArrowButton = (className, text) => {
+  const button = createElementWithClass('button', className);
+  button.textContent = text;
+  return button;
+};
+
+const createStructure = () => {
+  const structure = {
+    slider: createElementWithClass('div', 'slider'),
+    dotsNav: {
+      outer: createElementWithClass('div', 'dots-nav-outer-container'),
+      inner: createElementWithClass('div', 'dots-nav-inner-container'),
+      dots: createElementWithClass('div', 'dots-container'),
+      arrows: createElementWithClass('div', 'arrow-container'),
+      prev: createArrowButton('prev-button', '←'),
+      next: createArrowButton('next-button', '→'),
+    },
+  };
+
+  return structure;
+};
+
+const buildNavigation = (structure) => {
+  appendChildren(structure.dotsNav.arrows, [
+    structure.dotsNav.prev,
+    structure.dotsNav.next,
+  ]);
+
+  appendChildren(structure.dotsNav.inner, [
+    structure.dotsNav.dots,
+    structure.dotsNav.arrows,
+  ]);
+
+  structure.dotsNav.outer.appendChild(structure.dotsNav.inner);
+
+  return structure.dotsNav.outer;
+};
+
+const createTextContainer = (slide) => {
+  const textOuterContainer = createElementWithClass('div', 'text-outer-container');
+  const children = [...slide.children];
+
+  slide.classList.add('text-container');
+
+  const lastElement = children[children.length - 1];
+  if (lastElement) {
+    const buttonContainer = createElementWithClass('div', 'button-container');
+    const button = document.createElement('button');
+    button.textContent = lastElement.textContent;
+    buttonContainer.appendChild(button);
+    slide.appendChild(buttonContainer);
+    lastElement.remove();
+  }
+
+  textOuterContainer.appendChild(slide);
+  return textOuterContainer;
+};
+
+const buildSlider = (structure, block) => {
   [...block.children].forEach((carousel) => {
     carousel.classList.add('slide-container');
 
     [...carousel.children].forEach((slide, index) => {
-      if (index === 0) slide.classList.add('image-container');
-      else {
-        const textOuterContainer = document.createElement('div');
-        textOuterContainer.classList.add('text-outer-container');
-        carousel.append(textOuterContainer);
-        slide.classList.add('text-container');
-        textOuterContainer.append(slide);
-
-        [...slide.children].forEach((element, innerIndex) => {
-          if (innerIndex === [...slide.children].length - 1) {
-            const buttonContainer = document.createElement('div');
-            buttonContainer.classList.add('button-container');
-
-            const button = document.createElement('button');
-            button.textContent = element.textContent;
-
-            buttonContainer.append(button);
-            slide.append(buttonContainer);
-
-            element.remove();
-          }
-        });
+      if (index === 0) {
+        slide.classList.add('image-container');
+      } else {
+        const textContainer = createTextContainer(slide);
+        carousel.appendChild(textContainer);
       }
     });
-    slider.append(carousel);
+
+    structure.slider.appendChild(carousel);
   });
 
-  block.append(slider);
+  return structure.slider;
+};
+
+const createDom = async (block) => {
+  const structure = createStructure();
+
+  const slider = buildSlider(structure, block);
+  const navigation = buildNavigation(structure);
+
+  block.appendChild(slider);
+  block.appendChild(navigation);
+
+  await initializeCarousel(block);
 };
 
 export default async function decorate(block) {
   if (!block) return;
 
-  await createSlider(block);
-  await dotsNavs(block);
-  await initializeCarousel();
+  await createDom(block);
 }

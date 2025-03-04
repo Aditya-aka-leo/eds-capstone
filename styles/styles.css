@@ -9,7 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
+/* eslint-disable */
 :root {
   /* colors */
   --background-color: white;
@@ -69,15 +69,32 @@
     --heading-font-size-xs: 18px;
   }
 }
+#magazine{
+  margin-top: 100px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+p strong{
+  font-size: var(--fontSizeH2, 18px);
+  font-weight: 700;
+  font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
+}
+strong{
+  font-size: var(--fontSizeH2, 36px);
+  font-weight: var(--fontWeightNormal, normal);
+  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+}
 
 body {
   display: none;
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: var(--body-font-family);
+  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  position: relative;
 }
 
 body.appear {
@@ -106,11 +123,29 @@ h5,
 h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
-  font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-size: var(--fontSizeH2, 36px);
+  font-weight: var(--fontWeightNormal, normal);
+  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   line-height: 1.25;
   scroll-margin: 40px;
 }
+h2 {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0; 
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+  background-color: yellow;
+}
+
+
 
 h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
@@ -229,24 +264,28 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: auto;
-  padding: 0 24px;
+  padding: 0 14px;
 }
 
 main > .section:first-of-type {
   margin-top: 0;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
+button {
+  color: black;
+  font-size: 14px;
+  background-color: #ffea00;
+  border-radius: 0;
+  padding: 16px 40px;
 }
+
+
 
 /* section metadata */
 main .section.light,

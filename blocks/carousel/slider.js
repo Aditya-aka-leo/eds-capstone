@@ -1,9 +1,9 @@
-export const initializeCarousel = () => {
-  const slides = document.querySelectorAll('.carousel .slider .slide-container');
-  const dotsContainer = document.querySelector('.dots-container');
-  const slider = document.querySelector('.carousel .slider');
-  const prevButton = document.querySelector('.dots-nav-outer-container .prev-button');
-  const nextButton = document.querySelector('.dots-nav-outer-container .next-button');
+export const initializeCarousel = (block) => {
+  const slides = block.querySelectorAll('.slider .slide-container');
+  const dotsContainer = block.querySelector('.dots-container');
+  const slider = block.querySelector('.slider');
+  const prevButton = block.querySelector('.prev-button');
+  const nextButton = block.querySelector('.next-button');
 
   let currentIndex = 0;
   const totalImages = slides.length;
@@ -14,7 +14,7 @@ export const initializeCarousel = () => {
   }
 
   const updateDots = async () => {
-    const dots = document.querySelectorAll('.dot');
+    const dots = block.querySelectorAll('.dot');
 
     dots.forEach((dot, index) => {
       dot.classList.toggle('active', index === currentIndex);
