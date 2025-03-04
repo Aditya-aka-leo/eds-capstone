@@ -95,11 +95,12 @@ const createDom = async (block) => {
 
   block.appendChild(slider);
   block.appendChild(navigation);
+
+  await initializeCarousel(block);
 };
 
 export default async function decorate(block) {
   if (!block) return;
 
   await createDom(block);
-  await initializeCarousel();
 }

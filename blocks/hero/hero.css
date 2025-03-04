@@ -1,7 +1,11 @@
+/* eslint-disable */
 .hero .outer-container {
     display: flex;
     flex-direction: column-reverse;
     width: 100%;
+}
+.hero-wrapper{
+    max-width: none !important;
 }
 
 .hero .outer-container .text-container {
@@ -38,13 +42,17 @@
     font-weight: 500;
 }
 
+.hero .outer-container .image-container picture {
+    width: 100%;
+    
+}
 .hero .outer-container .image-container img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-@media (width >= 1026px) {
+@media (width >= 767px) {
     .hero {
         display: flex;
         justify-content: center;
@@ -53,8 +61,40 @@
     .hero .outer-container {
         display: flex;
         flex-direction: row;
-        width: 70%;
         justify-content: center;
+    }
+
+    .hero .outer-container .text-container {
+        width: 40%;
+    }
+
+    .hero .outer-container .image-container {
+        width: 60%;
+        display: flex;
+    }
+
+    .hero .outer-container .image-container img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (width >= 1026px) {
+    .hero {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-container .hero-wrapper{
+        padding : unset;
+    }
+    .hero .outer-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 
     .hero .outer-container .text-container {

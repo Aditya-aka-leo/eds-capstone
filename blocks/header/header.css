@@ -1,3 +1,4 @@
+/* eslint-disable */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,10 +6,6 @@
 }
 
 .nav-inner-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 14px;
     z-index: 1000000;
     position: fixed;
     width: 100vw;
@@ -16,10 +13,18 @@
     left: 0;
     right: 0;
     background-color: white;
-    transition: all 0.3s;
 }
 
-.nav-inner-container.nav-scroll {
+.header-main-comp {
+    padding: 30px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+}
+
+.header-main-comp.nav-scroll {
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -89,6 +94,10 @@
     text-transform: uppercase;
     padding: 15px 17px;
     text-decoration: none;
+}
+
+.nav-items ul li a:hover {
+    background-color: yellow;
 }
 
 .search-container {
@@ -161,6 +170,117 @@
     font-size: 16px;
 }
 
+.language-selector-container {
+    display: flex;
+    align-items: center;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+.current-language {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.flag-icon img {
+    width: 20px;
+    height: 15px;
+}
+
+.language-code {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dropdown-arrow {
+    font-size: 14px;
+}
+
+.language-dropdown-content {
+    position: absolute;
+    top: 100%;
+    margin-top: -100px;
+    right: 0;
+    padding-right: 10%;
+    background: #1c1c1c;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.language-dropdown-content.show {
+    display: flex;
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+.language-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.country-flag img {
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.country-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.country-name {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.language-codes {
+    font-size: 12px;
+    color: #bbb;
+}
+
+.sign-in-container {
+    color: #ebebeb;
+    font-size: var(--fontSizeSmall, 14px);
+    text-transform: uppercase;
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+}
+#registration-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    max-width: 340px;
+    padding: 32px 28px;
+    z-index: 1000000;
+    background-color: #202020;
+    color : white;
+    display:none;
+}
+#registration-form{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+.show-form{
+    display: block !important;
+}
+
 @media (min-width: 767px) and (max-width: 995px) {
     #hamburger {
         display: none;
@@ -169,11 +289,6 @@
     .nav-inner-container {
         width: 100vw;
         max-width: 100%;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        margin: 0 auto;
-        padding-left: 10px;
-        padding-right: 10px;
     }
 
     .nav-content {
@@ -181,7 +296,15 @@
     }
 
     .nav-items ul li a {
-        padding: 15px 10px;
+        padding: 15px 1px;
+    }
+
+    .language-selector-container {
+        justify-content: flex-end;
+        gap: 20px;
+    }
+    .header-main-comp{
+        padding: 30px 40px;
     }
 }
 
@@ -193,14 +316,17 @@
     .nav-inner-container {
         width: 100vw;
         max-width: 100%;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        margin: 0 auto;
-        padding-left: 10%;
-        padding-right: 10%;
     }
 
     .nav-content {
         display: block;
+    }
+
+    .language-selector-container {
+        justify-content: flex-end;
+        gap: 20px;
+    }
+    .header-main-comp{
+        padding: 30px 100px;
     }
 }

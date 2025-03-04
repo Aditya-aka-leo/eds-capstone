@@ -9,7 +9,7 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
+/* eslint-disable */
 :root {
   /* colors */
   --background-color: white;
@@ -69,15 +69,32 @@
     --heading-font-size-xs: 18px;
   }
 }
+#magazine{
+  margin-top: 100px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+p strong{
+  font-size: var(--fontSizeH2, 18px);
+  font-weight: 700;
+  font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
+}
+strong{
+  font-size: var(--fontSizeH2, 36px);
+  font-weight: var(--fontWeightNormal, normal);
+  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+}
 
 body {
   display: none;
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: var(--body-font-family);
+  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
+  position: relative;
 }
 
 body.appear {
@@ -106,8 +123,9 @@ h5,
 h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
-  font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-size: var(--fontSizeH2, 36px);
+  font-weight: var(--fontWeightNormal, normal);
+  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   line-height: 1.25;
   scroll-margin: 40px;
 }
@@ -250,7 +268,7 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: auto;
   padding: 0 14px;
 }
@@ -267,11 +285,7 @@ button {
   padding: 16px 40px;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
-}
+
 
 /* section metadata */
 main .section.light,

@@ -1,3 +1,4 @@
+/* eslint-disable */
 main > .section > .carousel-wrapper {
     width: 100%;
     padding: 0;
@@ -30,6 +31,7 @@ main > .section > .carousel-wrapper .carousel .slide-container .image-container 
 main > .section > .carousel-wrapper .carousel .slide-container .image-container img {
     min-height: 571px;
     object-fit: cover;
+    object-position: center;
 }
 
 main > .section > .carousel-wrapper .carousel .slide-container .text-container {
@@ -37,6 +39,12 @@ main > .section > .carousel-wrapper .carousel .slide-container .text-container {
     padding: 0 14px;
     z-index: 100;
     background-color: white;
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+}
+
+#wknd-adventures strong{
+    font-size: var(--fontSizeH2, 36px);
+    font-weight: var(--fontWeightNormal, normal);
 }
 
 main > .section > .carousel-wrapper .carousel .slide-container .text-container h2 {
@@ -101,6 +109,10 @@ main > .section > .carousel-wrapper .carousel .slide-container .text-container .
     align-items: center;
 }
 
+.no-carousel .dots-nav-inner-container{
+    display: none;
+}
+
 @media (width >= 767px) {
     .dots-nav-outer-container {
         display: flex;
@@ -117,11 +129,17 @@ main > .section > .carousel-wrapper .carousel .slide-container .text-container .
 }
 
 @media (width >= 1026px) {
+
+    main > .section > .carousel-wrapper .carousel .slide-container .text-container {
+        width: 100%;
+    }
     main > .section > div {
         max-width: none;
     }
 
     .text-outer-container {
+        padding-left: 10%;
+        padding-right: 10%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -135,5 +153,10 @@ main > .section > .carousel-wrapper .carousel .slide-container .text-container .
         min-width: 100%;
         display: block;
         max-height: 640px;
+    }
+
+    .default-content-wrapper #next-adventures{
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }

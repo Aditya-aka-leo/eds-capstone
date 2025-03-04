@@ -1,7 +1,7 @@
+/* eslint-disable */
 main > .about-us-cards-container:first-of-type {
     margin-top: 100px !important;
 }
-
 #about-us {
     font-size: var(--fontSizeH1, 40px);
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
@@ -115,4 +115,8 @@ main > .about-us-cards-container:first-of-type {
         width: auto;
         max-width: 300px;
     }
+    .about-us-cards-container{
+        padding:0 10%;
+    }
+    
 }

@@ -4,6 +4,7 @@ footer .footer > div {
 
 .footer-outer-container {
     background-color: #202020;
+    
 }
 
 .footer-header {
@@ -19,6 +20,7 @@ footer .footer > div {
     align-items: center;
     gap: 30px;
     width: 100%;
+    padding-bottom:40px;
 }
 
 .logo-nav-container .footer-header-logo img {
@@ -63,7 +65,7 @@ footer .footer > div {
 
 .footer-content {
     color: #f7f7f7;
-    font-size: 16px;
+    font-size: var(--fontSizeXSmall, 9pt);
 }
 
 .footer-content a {
